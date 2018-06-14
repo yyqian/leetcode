@@ -33,4 +33,4 @@ class SolutionDP {
   }
 };
 
-// There's a Manacher’s Algorithm, but is kind of tricky
+// DP

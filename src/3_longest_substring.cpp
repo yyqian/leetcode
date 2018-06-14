@@ -54,3 +54,5 @@ class SolutionBest {
     return result;
   }
 };
+
+// ascii map

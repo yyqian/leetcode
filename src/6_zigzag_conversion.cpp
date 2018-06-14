@@ -88,3 +88,5 @@ class Solution {
     return result;
   }
 };
+
+// 状态机
