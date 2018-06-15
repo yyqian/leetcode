@@ -40,3 +40,4 @@ class Solution {
     return (result > INT_MAX || result < INT_MIN) ? 0 : (int)result;
   }
 };
+// 小心 overflow
