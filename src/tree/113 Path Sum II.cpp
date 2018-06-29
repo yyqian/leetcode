@@ -35,8 +35,28 @@ struct TreeNode {
 
 class Solution {
  public:
-  vector<vector<int>> pathSum(TreeNode *root, int sum) {}
+  vector<vector<int>> pathSum(TreeNode *root, int sum) {
+    vector<vector<int>> result;
+    vector<int> path;
+    helper(result, path, root, sum);
+    return result;
+  }
 
+ private:
   void helper(vector<vector<int>> &result, vector<int> &path, TreeNode *root,
-              int sum) {}
+              int sum) {
+    if (root == nullptr) {
+      return;
+    }
+    int newSum = sum - root->val;
+    path.push_back(root->val);
+    if (newSum == 0 && root->left == nullptr && root->right == nullptr) {
+      result.push_back(path);
+      path.pop_back();
+      return;
+    }
+    helper(result, path, root->left, newSum);
+    helper(result, path, root->right, newSum);
+    path.pop_back();
+  }
 };
