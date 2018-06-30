@@ -1,8 +1,4 @@
 # leetcode
 leetcode in c++
 
-- tree
-- array
-- dfs/bfs
-- dp
-- linked list
+important: 15, 105, 200, 236
