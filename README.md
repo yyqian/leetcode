@@ -1,4 +1,4 @@
 # leetcode
 leetcode in c++
 
-important: 15, 105, 200, 236
+important: 15, 74, 105, 200, 236
