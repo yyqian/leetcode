@@ -10,16 +10,25 @@ binary_search 变种：rotated， duplicated
 cpp:
 
 ```
+// string
+string strNew = str + 'c'
+string strNew = str + "car"
+string strNew = str + (char)56
+bool eq = str1 == str2
+bool eq = str == "car"
+
 // vector
 v.size()
 v.push_back(val)
 v.pop_back()
 val = v.front()
 val = v.back()
+
 // set
 s.insert(val)
 s.erase(val)
 s.find(val) != s.end() // s contains val
+
 // algorithm
 sort(v.begin(), v.end());
 auto result = find(v.begin, v.end(), target); // contains: result != v.end()
