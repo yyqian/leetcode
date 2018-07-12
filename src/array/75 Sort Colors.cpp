@@ -16,29 +16,26 @@ First, iterate the array counting number of 0's, 1's, and 2's, then overwrite ar
 Could you come up with a one-pass algorithm using only constant space?
 */
 
-// TODO: WRONG
-
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
+      if (nums.size() <= 1) {
+        return;
+      }
       int lo = 0;
-      for(; lo < nums.size(); ++lo) {
-        if (nums[lo] != 0) break;
-      }
+      int mid = 0;
       int hi = nums.size() - 1;
-      for(; hi >= 0; --hi) {
-        if (nums[hi] != 2) break;
-      }
-      int k = lo;
-      while (k <= hi) {
-        if (nums[k] == 0) {
-          swap(nums[k], nums[lo]);
+      while (mid <= hi) {
+        if (nums[mid] == 0) {
+          swap(nums[mid], nums[lo]);
           lo++;
-        } else if (nums[k] == 2) {
-          swap(nums[k], nums[hi]);
-          --hi;
+          mid++;
+        } else if (nums[mid] == 2) {
+          swap(nums[mid], nums[hi]);
+          hi--;
+        } else {
+          mid++;
         }
-        ++k;
       }
     }
 };
