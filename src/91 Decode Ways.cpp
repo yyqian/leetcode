@@ -21,6 +21,13 @@ Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
 class Solution {
 public:
     int numDecodings(string s) {
-
+      if (s.empty()) {
+        return 0;
+      } else if (s.size() == 1) {
+        return s[0] == '0' ? 0 : 1;
+      } else if (s.size() == 2) {
+        if ()
+      }
+      return numDecodings(s.substr(1)) + numDecodings(s.substr(2));
     }
 };
