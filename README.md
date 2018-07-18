@@ -1,7 +1,7 @@
 # leetcode
 leetcode in c++
 
-important: 15, 74, 105, 200, 236, 39 & 40 & 46, 43, 55, 81, 90
+important: 15, 74, 105, 200, 236, 39 & 40 & 46, 43, 55, 81, 90, 96
 
 redo: 31, 33
 
@@ -54,6 +54,8 @@ void backtrack(vector<vector<int>> &result, vector<int> &path, vector<int> nums,
   }
 }
 ```
+
+DP 从 recur 转 iter 可以用 mem 数组
 
 Well Known:
 
