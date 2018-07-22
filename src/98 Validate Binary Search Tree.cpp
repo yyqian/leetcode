@@ -3,9 +3,9 @@ Given a binary tree, determine if it is a valid binary search tree (BST).
 
 Assume a BST is defined as follows:
 
-The left subtree of a node contains only nodes with keys less than the node's key.
-The right subtree of a node contains only nodes with keys greater than the node's key.
-Both the left and right subtrees must also be binary search trees.
+The left subtree of a node contains only nodes with keys less than the node's
+key. The right subtree of a node contains only nodes with keys greater than the
+node's key. Both the left and right subtrees must also be binary search trees.
 Example 1:
 
 Input:
@@ -35,8 +35,18 @@ Explanation: The input is: [5,1,4,null,null,3,6]. The root node's value
  * };
  */
 class Solution {
-public:
-    bool isValidBST(TreeNode* root) {
+ public:
+  bool isValidBST(TreeNode* root) {
+    TreeNode* prev = nullptr;
+    return in_order(root, prev);
+  }
 
-    }
+ private:
+  bool in_order(TreeNode* root, TreeNode*& prev) {
+    if (root == nullptr) return true;
+    if (!in_order(root->left, prev)) return false;
+    if (prev != nullptr && root->val <= prev->val) return false;
+    prev = root;
+    return in_order(root->right, prev);
+  }
 };
