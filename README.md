@@ -29,9 +29,23 @@ s.insert(val)
 s.erase(val)
 s.find(val) != s.end() // s contains val
 
+// queue
+q.front()
+q.back()
+q.pop()
+q.push()
+
+// stack
+stk.top()
+stk.pop()
+stk.push()
+
 // algorithm
 sort(v.begin(), v.end());
-auto result = find(v.begin, v.end(), target); // contains: result != v.end()
+reverse(v.begin(), v.end());
+swap(v[i], v[j]);
+auto result = find(v.begin(), v.end(), target); // contains: result != v.end()
+int idx = result - v.begin();
 ```
 
 贪婪, DP, 回溯, 分治
