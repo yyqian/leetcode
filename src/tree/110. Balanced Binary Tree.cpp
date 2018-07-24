@@ -41,6 +41,22 @@ Return false.
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-
+      int d;
+      return helper(root, d);
+    }
+private:
+    bool helper(TreeNode* root, int& r_depth) {
+      if (!root) {
+        r_depth = 0;
+        return true;
+      }
+      int left_depth = 0;
+      int right_depth = 0;
+      if (!helper(root->left, left_depth)) return false;
+      if (!helper(root->right, right_depth)) return false;
+      int diff = left_depth - right_depth;
+      if (diff < -1 || diff > 1) return false;
+      r_depth = max(left_depth, right_depth) + 1;
+      return true;
     }
 };
