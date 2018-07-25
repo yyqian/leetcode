@@ -14,26 +14,36 @@ Note:
 
 You may only use constant extra space.
 Recursive approach is fine, implicit stack space does not count as extra space for this problem.
+You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
 Example:
 
-Given the following binary tree,
+Given the following perfect binary tree,
 
      1
    /  \
   2    3
- / \    \
-4   5    7
+ / \  / \
+4  5  6  7
 After calling your function, the tree should look like:
 
      1 -> NULL
    /  \
   2 -> 3 -> NULL
- / \    \
-4-> 5 -> 7 -> NULL
+ / \  / \
+4->5->6->7 -> NULL
 */
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
-
+      if (!root) return;
+      connect(root->left);
+      connect(root->right);
+      TreeLinkNode* l = root->left;
+      TreeLinkNode* r = root->right;
+      while(l && r) {
+        l->next = r;
+        l = l->right;
+        r = r->left;
+      }
     }
 };

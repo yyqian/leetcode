@@ -18,6 +18,15 @@ Could you optimize your algorithm to use only O(k) extra space?
 class Solution {
 public:
     vector<int> getRow(int rowIndex) {
-
+      vector<int> res(rowIndex + 1, 1);
+      for (int i = 2; i <= rowIndex; ++i) {
+        int prev = 1;
+        for (int j = 1; j <= i - 1; ++j) {
+          int tmp = res[j];
+          res[j] += prev;
+          prev = tmp;
+        }
+      }
+      return res;
     }
 };
