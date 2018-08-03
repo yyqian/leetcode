@@ -32,9 +32,44 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
-
+      return helper(head, nullptr);
+    }
+private:
+    TreeNode* helper(ListNode* head, ListNode* tail) {
+      if (head == tail) {
+        return nullptr;
+      }
+      if (head->next == tail) {
+        TreeNode* root = new TreeNode(head->val);
+        return root;
+      }
+      ListNode* mid = head;
+      ListNode* curr = head;
+      while (curr != tail && curr->next != tail) {
+        mid = mid->next;
+        curr = curr->next->next;
+      }
+      TreeNode* root = new TreeNode(mid->val);
+      root->left = helper(head, mid);
+      root->right = helper(mid->next, tail);
+      return root;
     }
 };
