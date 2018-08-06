@@ -40,6 +40,12 @@ stk.top()
 stk.pop()
 stk.push()
 
+// unordered_set
+st.erase(iter)
+st.erase(val)
+st.insert(val)
+st.find(val) != st.end()
+
 // algorithm
 sort(v.begin(), v.end());
 reverse(v.begin(), v.end());

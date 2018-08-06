@@ -39,6 +39,37 @@ using namespace std;
 class Solution {
  public:
   int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-
+    unordered_set<string> pool(wordList.begin(), wordList.end());
+    queue<string> q;
+    q.push(beginWord);
+    pool.erase(beginWord);
+    int cnt = 1;
+    while (!q.empty()) {
+      ++cnt;
+      int sz = q.size();
+      unordered_set<string> to_erase;
+      for (int i = 0; i < sz; ++i) {
+        string current = q.front();
+        q.pop();
+        for (string nxt : pool) {
+          if (match(current, nxt)) {
+            if (nxt == endWord) return cnt;
+            to_erase.insert(nxt);
+            q.push(nxt);
+          }
+        }
+      }
+      for (string ers : to_erase) {
+        pool.erase(ers);
+      }
+    }
+    return 0;
+  }
+  bool match(string &a, string &b) {
+    int cnt = 0;
+    for (int i = 0; i < a.size(); ++i) {
+      if (a[i] != b[i]) ++cnt;
+    }
+    return cnt == 1;
   }
 };
