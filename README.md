@@ -46,6 +46,11 @@ st.erase(val)
 st.insert(val)
 st.find(val) != st.end()
 
+// unordered_map
+unordered_map<int, string> st {{1, "one"}, {2, "two"}};
+auto it = st.find(1);
+if (it != st.end()) std::cout << it->first << ":" << it->second;
+
 // algorithm
 sort(v.begin(), v.end());
 reverse(v.begin(), v.end());
