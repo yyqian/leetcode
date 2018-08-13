@@ -47,9 +47,10 @@ st.insert(val)
 st.find(val) != st.end()
 
 // unordered_map
-unordered_map<int, string> st {{1, "one"}, {2, "two"}};
-auto it = st.find(1);
-if (it != st.end()) std::cout << it->first << ":" << it->second;
+unordered_map<int, string> dict {{1, "one"}, {2, "two"}};
+dict.insert({3, "three"});
+auto it = dict.find(1);
+if (it != dict.end()) std::cout << it->first << ":" << it->second;
 
 // algorithm
 sort(v.begin(), v.end());
