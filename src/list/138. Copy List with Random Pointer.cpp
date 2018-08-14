@@ -32,3 +32,34 @@ public:
       return dummy.next;
     }
 };
+
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+      if (!head) return head;
+      RandomListNode *l1, *l2;
+      l1 = head;
+      while (l1) {
+        l2 = new RandomListNode(l1->label);
+        l2->next = l1->next;
+        l1->next = l2;
+        l1 = l2->next;
+      }
+      l1 = head;
+      while (l1) {
+        if (l1->random) {
+          l1->next->random = l1->random->next;
+        }
+        l1 = l1->next->next;
+      }
+      l1 = head;
+      l2 = head->next;
+      while (l1) {
+        RandomListNode *tmp = l1->next->next;
+        if (tmp) l1->next->next = tmp->next;
+        l1->next = tmp;
+        l1 = tmp;
+      }
+      return l2;
+    }
+};
