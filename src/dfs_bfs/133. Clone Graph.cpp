@@ -33,6 +33,31 @@ Visually, the graph looks like the following:
 class Solution {
 public:
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
-
+      if (!node) return node;
+      stack<UndirectedGraphNode *> stk;
+      dfs(stk, node);
+      UndirectedGraphNode *start;
+      while (!stk.empty()) {
+        UndirectedGraphNode *oldNode = stk.top();
+        stk.pop();
+        UndirectedGraphNode *newNode = mapping.find(oldNode->label)->second;
+        for (UndirectedGraphNode *n : oldNode->neighbors) {
+          newNode->neighbors.push_back(mapping.find(n->label)->second);
+        }
+        start = newNode;
+      }
+      return start;
     }
+private:
+    void dfs(stack<UndirectedGraphNode *> &stk, UndirectedGraphNode *node) {
+      if (mapping.find(node->label) != mapping.end()) {
+        return;
+      }
+      mapping.insert({node->label, new UndirectedGraphNode(node->label)});
+      stk.push(node);
+      for (UndirectedGraphNode *n : node->neighbors) {
+        dfs(stk, n);
+      }
+    }
+    unordered_map<int, UndirectedGraphNode*> mapping;
 };
