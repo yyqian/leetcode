@@ -21,5 +21,12 @@ Output: -1->0->3->4->5
  */
 class Solution {
  public:
-  ListNode* sortList(ListNode* head) {}
+  ListNode* sortList(ListNode* head) {
+    ListNode* current = head;
+    int len = 0;
+    while (current) {
+      ++len;
+      current = current->next;
+    }
+  }
 };
