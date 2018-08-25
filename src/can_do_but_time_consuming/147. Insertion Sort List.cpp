@@ -31,7 +31,14 @@ Output: -1->0->3->4->5
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ // 考虑直接 array 排序，然后变换到 list
 class Solution {
  public:
-  ListNode* insertionSortList(ListNode* head) {}
+  ListNode* insertionSortList(ListNode* head) {
+    ListNode tmp(0);
+    ListNode* dummy = &tmp;
+    dummy->next = head;
+    ListNode*
+    return dummy->next;
+  }
 };
