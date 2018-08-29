@@ -18,6 +18,7 @@ bool eq = str1 == str2
 bool eq = str == "car"
 
 // vector
+vector<bool> visited(numCourses, false);
 v.size()
 v.push_back(val)
 v.pop_back()
